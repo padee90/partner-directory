@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 56px;
+  padding: 0 16px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.header-left {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo-img {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #242524ff;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-left: 47px; /* This gives the 47px spacing from logo-text */
+}
+
+.nav-links a {
+  margin-right: 16px;
+  font-family: Inter;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #242524ff;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+
+.add-partner {
+  padding: 8px 12px;
+  font-family: Inter;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #FFFFFFFF;
+  background: #2987C2FF;
+  opacity: 1;
+  border: none;
+  border-radius: 6px;
+  gap: 8px;
+  cursor: pointer;
+}
+.main-content {
+  flex: 1;
+  padding: 16px;
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 8px 16px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+
+  .add-partner {
+    margin-top: 0;
   }
 }

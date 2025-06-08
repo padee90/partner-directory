@@ -1,0 +1,52 @@
+{
+  "partners": [
+    {
+      "id": 1,
+      "name": "Mindful Spaces",
+      "country": "United States",
+      "category": "Wellness & Health",
+      "logo": "https://via.placeholder.com/100",
+      "isFavorite": false
+    },
+    {
+      "id": 2,
+      "name": "Global Bites",
+      "country": "Canada",
+      "category": "Food & Beverage",
+      "logo": "https://via.placeholder.com/100",
+      "isFavorite": true
+    },
+    {
+      "id": 3,
+      "name": "Aesthetic Arts",
+      "country": "France",
+      "category": "Arts & Culture",
+      "logo": "https://via.placeholder.com/100",
+      "isFavorite": false
+    },
+    {
+      "id": 4,
+      "name": "CodeCraft Solutions",
+      "country": "Germany",
+      "category": "Technology Solutions",
+      "logo": "https://via.placeholder.com/100",
+      "isFavorite": false
+    },
+    {
+      "id": 5,
+      "name": "Edify Online",
+      "country": "United Kingdom",
+      "category": "Education & Learning",
+      "logo": "https://via.placeholder.com/100",
+      "isFavorite": true
+    },
+    {
+      "id": 6,
+      "name": "Urban Essentials",
+      "country": "Australia",
+      "category": "Local Services",
+      "logo": "https://via.placeholder.com/100",
+      "isFavorite": false
+    }
+  ]
+}
