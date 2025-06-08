@@ -22,3 +22,57 @@
   font-size: 14px;
   color: #666;
 }
+
+/* Add skeleton styles here */
+.partner-card.skeleton {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f0f0f0;
+  animation: pulse 1.5s infinite;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
+}
+.partner-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.category-pill {
+  display: inline-block;
+  background-color: #2987c2;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.favorite-button {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+}
+
+.favorite-button.favorited {
+  color: #e74c3c;
+}

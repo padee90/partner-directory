@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Partner } from "../types";
 
-
 export function usePartners(searchTerm: string, selectedCountry: string) {
   const [partners, setPartners] = useState<Partner[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -13,34 +12,35 @@ export function usePartners(searchTerm: string, selectedCountry: string) {
       setError("");
 
       try {
-        const params = new URLSearchParams();
-
-        if (searchTerm) {
-          params.append("q", searchTerm);
-        }
-
-        if (selectedCountry) {
-          params.append("country", selectedCountry);
-        }
-
-        let url = "http://localhost:3001/partners";
-        if (params.toString()) {
-          url += `?${params.toString()}`;
-        }
-
-        const response = await fetch(url);
+        const response = await fetch("http://localhost:3001/partners");
 
         if (!response.ok) {
           throw new Error("Failed to fetch partners");
         }
 
         const data = await response.json();
-        setPartners(data);
+
+        // Apply client-side filtering
+        let filteredData = data;
+
+        if (selectedCountry) {
+          filteredData = filteredData.filter(
+            (partner: Partner) => partner.country === selectedCountry
+          );
+        }
+
+        if (searchTerm.trim() !== "") {
+          filteredData = filteredData.filter((partner: Partner) =>
+            partner.name.toLowerCase().includes(searchTerm.trim().toLowerCase())
+          );
+        }
+
+        setPartners(filteredData);
       } catch (err) {
         console.error(err);
         setError("Error loading partners");
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     };
 

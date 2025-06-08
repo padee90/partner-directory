@@ -25,30 +25,3 @@
   gap: 16px;
   margin-top: 16px;
 }
-.partner-card.skeleton {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #f0f0f0;
-  height: 160px; /* match real card approx height */
-  animation: pulse 1.5s infinite;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-
-@keyframes pulse {
-  0% {
-    background-color: #f0f0f0;
-  }
-  50% {
-    background-color: #e0e0e0;
-  }
-  100% {
-    background-color: #f0f0f0;
-  }
-}

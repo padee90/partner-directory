@@ -5,7 +5,7 @@
       "name": "Mindful Spaces",
       "country": "United States",
       "category": "Wellness & Health",
-      "logo": "https://via.placeholder.com/100",
+      "logoFilename": "prod1.png",
       "isFavorite": false
     },
     {
@@ -13,7 +13,7 @@
       "name": "Global Bites",
       "country": "Canada",
       "category": "Food & Beverage",
-      "logo": "https://via.placeholder.com/100",
+      "logoFilename": "prod12.png",
       "isFavorite": true
     },
     {
@@ -21,7 +21,7 @@
       "name": "Aesthetic Arts",
       "country": "France",
       "category": "Arts & Culture",
-      "logo": "https://via.placeholder.com/100",
+      "logoFilename": "prod10.png",
       "isFavorite": false
     },
     {
@@ -29,7 +29,7 @@
       "name": "CodeCraft Solutions",
       "country": "Germany",
       "category": "Technology Solutions",
-      "logo": "https://via.placeholder.com/100",
+      "logoFilename": "prod11.png",
       "isFavorite": false
     },
     {
@@ -37,7 +37,7 @@
       "name": "Edify Online",
       "country": "United Kingdom",
       "category": "Education & Learning",
-      "logo": "https://via.placeholder.com/100",
+      "logoFilename": "prod9.png",
       "isFavorite": true
     },
     {
@@ -45,7 +45,7 @@
       "name": "Urban Essentials",
       "country": "Australia",
       "category": "Local Services",
-      "logo": "https://via.placeholder.com/100",
+      "logoFilename": "prod1.png",
       "isFavorite": false
     }
   ]

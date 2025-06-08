@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { usePartners } from "../hooks/usePartners";
 import PartnerCard from "../components/PartnerCard";
+import SkeletonCard from "../components/PartnerCard/SkeletonCard";
 import "./PartnerDirectoryDashboard.css";
 
 export default function PartnerDirectoryDashboard() {
@@ -38,16 +39,30 @@ export default function PartnerDirectoryDashboard() {
       </div>
 
       {/* Partner Grid */}
-      {loading &&
-        Array.from({ length: 6 }).map((_, index) => (
-          <div key={index} className="partner-card skeleton"></div>
-        ))}
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div className="partner-grid">
-        {partners.map((partner) => (
-          <PartnerCard key={partner.id} partner={partner} />
-        ))}
+        {loading &&
+          Array.from({ length: 6 }).map((_, index) => (
+            <SkeletonCard key={index} />
+          ))}
+
+        {!loading && partners.length === 0 && (
+          <p
+            style={{
+              gridColumn: "1 / -1",
+              textAlign: "center",
+              padding: "32px",
+              color: "#666",
+            }}
+          >
+            No partners found.
+          </p>
+        )}
+
+        {!loading &&
+          partners.map((partner) => (
+            <PartnerCard key={partner.id} partner={partner} />
+          ))}
       </div>
     </div>
   );
