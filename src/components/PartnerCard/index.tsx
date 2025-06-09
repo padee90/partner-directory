@@ -4,11 +4,10 @@ import { useState } from "react";
 
 type PartnerCardProps = {
   partner: Partner;
+  onToggleFavorite: (partnerId: string, currentValue: boolean) => void;
 };
 
-export default function PartnerCard({ partner }: PartnerCardProps) {
-  const [isFavorite, setIsFavorite] = useState(partner.isFavorite ?? false);
-
+export default function PartnerCard({ partner, onToggleFavorite }: PartnerCardProps) {
   return (
     <div className="partner-card">
       {/* Logo */}
@@ -33,12 +32,13 @@ export default function PartnerCard({ partner }: PartnerCardProps) {
 
       {/* Favorite heart */}
       <button
-        className={`favorite-button ${isFavorite ? "favorited" : ""}`}
-        onClick={() => setIsFavorite(!isFavorite)}
-        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        className={`favorite-button ${partner.isFavorite ? "favorited" : ""}`}
+        onClick={() => onToggleFavorite(partner.id, !!partner.isFavorite)}
+        aria-label={partner.isFavorite ? "Remove from favorites" : "Add to favorites"}
       >
-        {isFavorite ? "♥" : "♡"}
+        {partner.isFavorite ? "♥" : "♡"}
       </button>
     </div>
   );
 }
+

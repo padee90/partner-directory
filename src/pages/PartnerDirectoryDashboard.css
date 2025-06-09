@@ -4,9 +4,15 @@
 
 .filters {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: 12px; /* spacing between search + dropdown */
   margin-bottom: 16px;
 }
+
+.filters label {
+  display: none; /* visually hide but keep for screen readers */
+}
+
 
 .autocomplete-input {
   flex: 1;

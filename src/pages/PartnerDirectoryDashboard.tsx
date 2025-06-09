@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePartners } from "../hooks/usePartners";
 import PartnerCard from "../components/PartnerCard";
 import SkeletonCard from "../components/PartnerCard/SkeletonCard";
@@ -7,7 +7,38 @@ import "./PartnerDirectoryDashboard.css";
 export default function PartnerDirectoryDashboard() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
-  const { partners, loading, error } = usePartners(searchTerm, selectedCountry);
+  
+  const { partners, loading, error, fetchPartners } = usePartners();
+
+
+  useEffect(() => {
+    fetchPartners(searchTerm, selectedCountry);
+  }, [searchTerm, selectedCountry, fetchPartners]);
+
+  // Favorite toggle handler
+  const handleToggleFavorite = async (partnerId: string, currentValue: boolean) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/partners/${partnerId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ isFavorite: !currentValue }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to update favorite");
+      }
+
+      // After update → trigger fresh fetch
+      await fetchPartners(searchTerm, selectedCountry);
+    } catch (error) {
+      console.error(error);
+      alert("Failed to update favorite");
+    }
+  };
 
   return (
     <div className="partner-directory-dashboard">
@@ -16,7 +47,9 @@ export default function PartnerDirectoryDashboard() {
       {/* Filters section */}
       <div className="filters">
         {/* Autocomplete */}
+        <label htmlFor="partner-search">Search Partners</label>
         <input
+          id="partner-search"
           type="text"
           placeholder="Search Partners..."
           className="autocomplete-input"
@@ -25,7 +58,9 @@ export default function PartnerDirectoryDashboard() {
         />
 
         {/* Dropdown */}
+        <label htmlFor="country-select">Country</label>
         <select
+          id="country-select"
           className="country-dropdown"
           value={selectedCountry}
           onChange={(e) => setSelectedCountry(e.target.value)}
@@ -39,7 +74,6 @@ export default function PartnerDirectoryDashboard() {
       </div>
 
       {/* Partner Grid */}
-
       <div className="partner-grid">
         {loading &&
           Array.from({ length: 6 }).map((_, index) => (
@@ -61,7 +95,11 @@ export default function PartnerDirectoryDashboard() {
 
         {!loading &&
           partners.map((partner) => (
-            <PartnerCard key={partner.id} partner={partner} />
+            <PartnerCard
+              key={partner.id}
+              partner={partner}
+              onToggleFavorite={handleToggleFavorite}
+            />
           ))}
       </div>
     </div>
