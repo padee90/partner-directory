@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { usePartners } from "../hooks/usePartners";
-import PartnerCard from "../components/PartnerCard";
-import SkeletonCard from "../components/PartnerCard/SkeletonCard";
+import { usePartners } from "../../hooks/usePartners";
+import PartnerCard from "../../components/PartnerCard";
+import SkeletonCard from "../../components/PartnerCard/SkeletonCard";
 import "./PartnerDirectoryDashboard.css";
 
 export default function PartnerDirectoryDashboard() {

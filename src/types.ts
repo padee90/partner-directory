@@ -6,3 +6,6 @@ export type Partner = {
   category?: string;
   isFavorite?: boolean;
 };
+export type Country = {
+  name:string;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import "./App.css";
-import PartnerDirectoryDashboard from "./pages/PartnerDirectoryDashboard";
+import PartnerDirectoryDashboard from "./pages/PartnerDirectory";
 import AddNewPartner from "./pages/AddNewPartner";
 
 function App() {
